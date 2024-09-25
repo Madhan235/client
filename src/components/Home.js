@@ -9,6 +9,8 @@ import {
   FaShoppingCart,
 } from "react-icons/fa";
 
+import { IoClose } from "react-icons/io5";
+
 import React, { useState, useEffect } from "react";
 import MainCard from "./MainCard";
 
@@ -41,7 +43,7 @@ export default function Home() {
   const filteredItems = allItems.filter((item) =>
     item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
+  console.log(filteredItems);
   useEffect(() => {
     const fetchData = async (category, state) => {
       setLoading(true);
@@ -105,12 +107,22 @@ export default function Home() {
                 className="w-full py-2 px-4 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 placeholder="Search products..."
                 onChange={handleSearchChange}
+                value={searchQuery}
               />
-              <FaSearch
-                color="blue"
-                size={20}
-                className="absolute right-2 text-gray-500 cursor-pointer"
-              />
+              {searchQuery ? (
+                <IoClose
+                  onClick={() => setSearchQuery("")}
+                  color="red"
+                  size={22}
+                  className="absolute right-2 text-gray-500 cursor-pointer"
+                />
+              ) : (
+                <FaSearch
+                  color="blue"
+                  size={20}
+                  className="absolute right-2 text-gray-500 cursor-pointer"
+                />
+              )}
             </div>
           </div>
 
@@ -185,7 +197,7 @@ export default function Home() {
       {/* MAIN  */}
 
       <main className="mt-2">
-        {filteredItems > 0 ? (
+        {filteredItems.length > 0 && searchQuery ? (
           <MainCard
             loading={loading}
             items={filteredItems} // Pass filtered items to MainCard
