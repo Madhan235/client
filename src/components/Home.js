@@ -54,6 +54,7 @@ export default function Home() {
           `https://ecomserver-zeta.vercel.app/api/${category}`,
           {
             method: "GET",
+            mode: "no-cors",
           }
         );
 
