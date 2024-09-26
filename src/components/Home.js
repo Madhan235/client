@@ -45,16 +45,17 @@ export default function Home() {
   );
 
   // https://ecomserver-zeta.vercel.app/api/clothings
+  // https://ecomserver-git-master-madhan235s-projects.vercel.app/api/clothings
 
   useEffect(() => {
     const fetchData = async (category, state) => {
       setLoading(true);
       try {
         const res = await fetch(
-          `https://ecomserver-zeta.vercel.app/api/${category}`,
+          `https://ecomserver-git-master-madhan235s-projects.vercel.app/api/${category}`,
           {
             method: "GET",
-            mode: "no-cors",
+            // mode: "no-cors",
           }
         );
 
