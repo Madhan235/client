@@ -52,10 +52,7 @@ export default function Home() {
       setLoading(true);
       try {
         const res = await fetch(
-          `https://ecomserver-git-master-madhan235s-projects.vercel.app/api/${category}`,
-          {
-            method: "GET",
-          }
+          `https://ecomserver-git-master-madhan235s-projects.vercel.app/api/${category}`
         );
 
         // http://localhost:5000/
