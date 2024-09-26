@@ -43,27 +43,32 @@ export default function Home() {
   const filteredItems = allItems.filter((item) =>
     item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  console.log(filteredItems);
+
   useEffect(() => {
     const fetchData = async (category, state) => {
       setLoading(true);
       try {
         const res = await fetch(
-          `https://ecomserver-dovmm5rjs-madhan235s-projects.vercel.app/api/${category}`
+          `https://ecomserver-dovmm5rjs-madhan235s-projects.vercel.app/api/${category}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
         );
 
         if (!res.ok) {
-          // Check if response is not ok
           throw new Error("Network response was not ok");
         }
 
         const data = await res.json();
 
-        state(data); // Update state with fetched data
+        state(data);
       } catch (error) {
-        console.log(error.message); // Log error message
+        console.log(error.message);
       } finally {
-        setLoading(false); // Set loading to false regardless of success or error
+        setLoading(false);
       }
     };
 
