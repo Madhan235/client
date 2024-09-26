@@ -55,7 +55,7 @@ export default function Home() {
           `https://ecomserver-git-master-madhan235s-projects.vercel.app/api/${category}`,
           {
             method: "GET",
-            // mode: "no-cors",
+            mode: "no-cors",
           }
         );
 
