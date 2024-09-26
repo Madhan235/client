@@ -203,7 +203,7 @@ export default function Home() {
 
       {/* MAIN  */}
 
-      <main className="mt-2">
+      <main className="mt-2 min-h-[90vh]:">
         {filteredItems.length > 0 && searchQuery ? (
           <MainCard
             loading={loading}
