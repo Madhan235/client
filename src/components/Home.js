@@ -48,7 +48,9 @@ export default function Home() {
     const fetchData = async (category, state) => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:5000/api/${category}`);
+        const res = await fetch(
+          `https://ecomserver-dovmm5rjs-madhan235s-projects.vercel.app/api/${category}`
+        );
 
         if (!res.ok) {
           // Check if response is not ok
