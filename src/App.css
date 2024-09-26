@@ -1,7 +1,7 @@
 /* styles.css or your CSS module */
 .card-img {
   width: 100%; /* Make the image responsive */
-  height: 200px; /* Set a fixed height */
+  height: 300px; /* Set a fixed height */
   object-fit: cover; /* Ensures the image covers the area without distortion */
 }
 

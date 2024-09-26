@@ -81,6 +81,7 @@ export default function Home() {
   const handleNavClick = (id) => {
     SetCurrentId(id);
   };
+
   return (
     <div className="">
       {/* HEADER  */}
