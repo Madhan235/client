@@ -48,15 +48,13 @@ export default function Home() {
     const fetchData = async (category, state) => {
       setLoading(true);
       try {
-        const res = await fetch(
-          `https://ecomserver-dovmm5rjs-madhan235s-projects.vercel.app/api/${category}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const res = await fetch(`http://localhost:5000/api/${category}`, {
+          method: "GET",
+          mode: "no-cors",
+        });
+
+        // http://localhost:3000/
+        console.log(res);
 
         if (!res.ok) {
           throw new Error("Network response was not ok");
@@ -203,7 +201,7 @@ export default function Home() {
 
       {/* MAIN  */}
 
-      <main className="mt-2 min-h-[90vh]:">
+      <main className="mt-2 min-h-[80vh]">
         {filteredItems.length > 0 && searchQuery ? (
           <MainCard
             loading={loading}
