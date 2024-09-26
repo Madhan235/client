@@ -58,7 +58,7 @@ export default function Home() {
         );
 
         // http://localhost:3000/
-        console.log(res);
+        // console.log(res);
 
         if (!res.ok) {
           throw new Error("Network response was not ok");
