@@ -44,14 +44,18 @@ export default function Home() {
     item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // https://ecomserver-zeta.vercel.app/api/clothings
+
   useEffect(() => {
     const fetchData = async (category, state) => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:5000/api/${category}`, {
-          method: "GET",
-          mode: "no-cors",
-        });
+        const res = await fetch(
+          `https://ecomserver-zeta.vercel.app/api/${category}`,
+          {
+            method: "GET",
+          }
+        );
 
         // http://localhost:3000/
         console.log(res);
