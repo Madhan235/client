@@ -3,9 +3,22 @@ import { Button, Card } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { ModalComp } from "./ModalComp";
 import Review from "./Review";
+import confetti from "canvas-confetti";
 
 export default function ProductCard({ product, setCartCount }) {
   const [showModal, setShowModal] = useState(false);
+
+  function triggerConfetti() {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  }
+  const handleCart = () => {
+    setCartCount((prev) => prev + 1);
+    triggerConfetti();
+  };
   return (
     <div className=" text-center m-3">
       {showModal && (
@@ -41,7 +54,7 @@ export default function ProductCard({ product, setCartCount }) {
           <Button
             gradientDuoTone={"purpleToPink"}
             className="rounded-lg   px-5 py-2.5 text-center text-sm font-medium text-white  focus:outline-none focus:ring-4 focus:ring-cyan-300  "
-            onClick={() => setCartCount((prev) => prev + 1)}
+            onClick={handleCart}
           >
             Add to cart
           </Button>
